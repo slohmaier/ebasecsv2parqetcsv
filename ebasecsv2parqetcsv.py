@@ -40,7 +40,7 @@ if __name__ == '__main__':
             .format(args.ecsv, sys.argv[0]))
         sys.exit(1)
     
-    ecsvFile = open(args.ecsv, 'r')
+    ecsvFile = open(args.ecsv, 'r', encoding='latin-1')
     ecsv = csv.reader(ecsvFile, delimiter=';')
 
     rows = []
