@@ -73,11 +73,11 @@ if __name__ == '__main__':
         if not _type in _TYPEMAP.values():
             raise ValueError(_type)
 
-        rows.append([date, parse_amount(fee), isin, parse_amount(kurs), parse_amount(parts), parse_amount(tax), _type])
+        rows.append([date, parse_amount(fee), isin, parse_amount(kurs), parse_amount(parts), parse_amount(tax), _type, parse_amount(amount)])
 
     pcsvFile = open(args.pcsv, 'w+')
     pcsv = csv.writer(pcsvFile, 'unix', quoting=0, delimiter=';')
-    pcsv.writerow(['date', 'fee', 'isin', 'price', 'shares', 'tax', 'type'])
+    pcsv.writerow(['date', 'fee', 'isin', 'price', 'shares', 'tax', 'type', 'amount'])
 
     for row in rows:
         pcsv.writerow(row)
